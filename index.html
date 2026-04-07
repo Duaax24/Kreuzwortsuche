@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Wortsuche</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(5, 50px);
+      gap: 5px;
+    }
+
+    .cell {
+      width: 50px;
+      height: 50px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .selected {
+      background: rgb(16, 21, 109);
+    }
+
+    .found {
+      background: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Wortsuche 🔍</h2>
+<p>Finde: INFRA</p>
+
+<div id="grid"></div>
+<p id="result"></p>
+
+<script>
+const letters = [
+  "I","N","F","R","A",
+  "X","T","U","B","C",
+  "D","E","F","G","H",
+  "I","J","K","L","M",
+  "N","O","P","Q","R"
+];
+
+let selected = [];
+
+const grid = document.getElementById("grid");
+
+letters.forEach(letter => {
+  const div = document.createElement("div");
+  div.className = "cell";
+  div.innerText = letter;
+
+  div.onclick = () => {
+    div.classList.toggle("selected");
+
+    if (div.classList.contains("selected")) {
+      selected.push(letter);
+    } else {
+      selected = selected.filter(l => l !== letter);
+    }
+
+    checkWord();
+  };
+
+  grid.appendChild(div);
+});
+
+function checkWord() {
+  const word = selected.join("");
+
+  if (word === "INFRA") {
+    document.getElementById("result").innerText = "✅ Gefunden!";
+
+    document.querySelectorAll(".selected").forEach(el => {
+      el.classList.add("found");
+      el.classList.remove("selected");
+    });
+
+    selected = [];
+  }
+}
+</script>
+
+</body>
+</html>
