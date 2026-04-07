@@ -6,7 +6,7 @@ body {
   
   #game-container {
     display: grid;
-    grid-template-columns: repeat(10, 40px); /* 10x10 Grid */
+    grid-template-columns: repeat(8, 40px); /* 10x10 Grid */
     grid-gap: 5px;
     margin: 20px auto;
   }
@@ -25,7 +25,7 @@ body {
   }
   
   .cell.selected {
-    background: #ff7a00;
+    background: #525a78;
     color: white;
   }
   
@@ -47,6 +47,6 @@ body {
   #message {
     margin: 15px;
     font-weight: bold;
-    color: #ff7a00;
+    color: #48537e;
     font-size: 1.2rem;
   }

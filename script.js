@@ -2,16 +2,15 @@ const words = ["ENERGY", "ECONOMY", "TRADE"];
 let foundWords = [];
 let score = 0;
 
+const GRID_SIZE = 8; // 10x10 Grid
 const container = document.getElementById("game-container");
 const scoreEl = document.getElementById("score-value");
 const wordsListEl = document.getElementById("words-to-find");
 const messageEl = document.getElementById("message");
 
-// Grid Größe
-const GRID_SIZE = 14;
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// Anzeige der Wörter
+// Wörterliste anzeigen
 words.forEach(word => {
   const li = document.createElement("li");
   li.textContent = word;
@@ -30,14 +29,25 @@ for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
   cells.push(cell);
 }
 
-// Funktion: Wort in Grid platzieren (horizontal)
+// Funktion: Wort horizontal oder vertikal platzieren
 function placeWord(word) {
-  let startRow = Math.floor(Math.random() * GRID_SIZE);
-  let startCol = Math.floor(Math.random() * (GRID_SIZE - word.length));
-  for (let i = 0; i < word.length; i++) {
-    let index = startRow * GRID_SIZE + (startCol + i);
-    cells[index].textContent = word[i];
-    cells[index].dataset.word = word;
+  const direction = Math.random() < 0.5 ? "horizontal" : "vertical";
+  if (direction === "horizontal") {
+    const row = Math.floor(Math.random() * GRID_SIZE);
+    const col = Math.floor(Math.random() * (GRID_SIZE - word.length));
+    for (let i = 0; i < word.length; i++) {
+      let index = row * GRID_SIZE + (col + i);
+      cells[index].textContent = word[i];
+      cells[index].dataset.word = word;
+    }
+  } else { // vertikal
+    const row = Math.floor(Math.random() * (GRID_SIZE - word.length));
+    const col = Math.floor(Math.random() * GRID_SIZE);
+    for (let i = 0; i < word.length; i++) {
+      let index = (row + i) * GRID_SIZE + col;
+      cells[index].textContent = word[i];
+      cells[index].dataset.word = word;
+    }
   }
 }
 
