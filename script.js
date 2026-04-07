@@ -2,7 +2,7 @@ const words = ["ENERGY", "ECONOMY", "TRADE"];
 let foundWords = [];
 let score = 0;
 
-const GRID_SIZE = 8; // 10x10 Grid
+const GRID_SIZE = 10;
 const container = document.getElementById("game-container");
 const scoreEl = document.getElementById("score-value");
 const wordsListEl = document.getElementById("words-to-find");

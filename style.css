@@ -2,13 +2,21 @@ body {
     font-family: sans-serif;
     background-color: #f0f0f0;
     text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #game-wrapper {
+    display: inline-block;
+    margin: 30px auto;
   }
   
   #game-container {
     display: grid;
-    grid-template-columns: repeat(8, 40px); /* 10x10 Grid */
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
     grid-gap: 5px;
-    margin: 20px auto;
+    justify-content: center;
   }
   
   .cell {
@@ -25,7 +33,7 @@ body {
   }
   
   .cell.selected {
-    background: #525a78;
+    background: #272e6e;
     color: white;
   }
   
@@ -47,6 +55,25 @@ body {
   #message {
     margin: 15px;
     font-weight: bold;
-    color: #48537e;
+    color: #202257;
     font-size: 1.2rem;
+  }
+  
+  #score {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  #logo-container {
+    position: fixed;      /* Immer sichtbar, auch beim Scrollen */
+    bottom: 10px;         /* Abstand vom unteren Rand */
+    left: 10px;           /* Abstand vom linken Rand */
+    z-index: 1000;        /* Über anderen Elementen */
+  }
+  
+  #logo-container img {
+    width: 400px;          /* Größe anpassen */
+    height: auto;         /* proportional */
+    display: block;
   }
