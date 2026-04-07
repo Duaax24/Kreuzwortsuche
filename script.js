@@ -29,6 +29,9 @@ for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
   cells.push(cell);
 }
 
+
+
+
 // Funktion: Wort horizontal oder vertikal platzieren
 function placeWord(word) {
   const direction = Math.random() < 0.5 ? "horizontal" : "vertical";
