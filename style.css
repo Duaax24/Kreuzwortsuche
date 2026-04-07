@@ -6,7 +6,7 @@ body {
   
   #game-container {
     display: grid;
-    grid-template-columns: repeat(14, 40px); /* größeres Raster */
+    grid-template-columns: repeat(10, 40px); /* größeres Raster */
     grid-gap: 5px;
     margin: 20px auto;
   }
