@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+  
+  #game-container {
+    display: grid;
+    grid-template-columns: repeat(14, 40px); /* größeres Raster */
+    grid-gap: 5px;
+    margin: 20px auto;
+  }
+  
+  .cell {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    font-weight: bold;
+  }
+  
+  .cell.selected {
+    background: #ff7a00;
+    color: white;
+  }
+  
+  .cell.found {
+    background: #4CAF50;
+    color: white;
+  }
+  
+  #words-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #words-list li.found-word {
+    color: #4CAF50;
+    text-decoration: line-through;
+  }
+  
+  #message {
+    margin: 15px;
+    font-weight: bold;
+    color: #ff7a00;
+    font-size: 1.2rem;
+  }
