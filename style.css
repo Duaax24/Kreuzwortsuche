@@ -13,15 +13,21 @@ body {
   
   #game-container {
     display: grid;
-    grid-template-columns: repeat(10, 40px);
-    grid-template-rows: repeat(10, 40px);
-    grid-gap: 5px;
-    justify-content: center;
+    grid-template-columns: repeat(10, 1fr); 
+    gap: 5px;
+    width: 90vw;          
+    max-width: 450px;     
+    margin: 0 auto;
   }
   
   .cell {
-    width: 40px;
-    height: 40px;
+    width: 8vw;     
+    height: 8vw;
+    max-width: 40px;  /* Desktop bleibt gleich */
+    max-height: 40px;
+    min-width: 25px;  /* nicht zu klein */
+    min-height: 25px;
+  
     background: white;
     border: 1px solid #333;
     display: flex;
@@ -66,14 +72,44 @@ body {
   }
 
   #logo-container {
-    position: fixed;      /* Immer sichtbar, auch beim Scrollen */
-    bottom: 10px;         /* Abstand vom unteren Rand */
-    left: 10px;           /* Abstand vom linken Rand */
-    z-index: 1000;        /* Über anderen Elementen */
+    position: fixed;      
+    bottom: 10px;         
+    left: 10px;           
+    z-index: 1000;        
   }
   
   #logo-container img {
     width: 400px;          /* Größe anpassen */
-    height: auto;         /* proportional */
+    height: auto;         
     display: block;
+  }
+
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none; /* erstmal versteckt */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  
+  #popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  #popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #142973;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
   }

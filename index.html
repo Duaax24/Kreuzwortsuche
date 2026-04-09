@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Kreuzworträtsel</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kreuzworträtsel</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Script mit defer (WICHTIG!) -->
+  <script src="script.js" defer></script>
 </head>
+
 <body>
 
 <h1>Kreuzworträtsel Thema: ...</h1>
@@ -26,10 +31,18 @@
   Punkte: <span id="score-value">0</span>
 </div>
 
-<script src="script.js"></script>
 <!-- Logo unten links -->
 <div id="logo-container">
   <img src="AHK Logo.png" alt="AHK Logo" id="ahk-logo">
+</div>
+
+<!-- 🎉 POPUP -->
+<div id="popup">
+  <div id="popup-content">
+    <h2>🎉 Herzlichen Glückwunsch!</h2>
+    <p>Du hast alle Wörter gefunden!</p>
+    <button onclick="restartGame()">Nochmal spielen</button>
+  </div>
 </div>
 
 </body>
